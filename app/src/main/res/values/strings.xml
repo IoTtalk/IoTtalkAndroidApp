@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">IoTtalk</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!--  BluetoothChat -->
+    <string name="send">Send</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled.\nLeaving MorSensor App.</string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_connected_to">connected to <xliff:g id="device_name">%1$s</xliff:g></string>
+    <string name="title_not_connected">not connected</string>
+
+    <!--  BLEListActivity -->
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+
+    <!-- Options Menu -->
+    <string name="secure_connect">Connect a device - Secure</string>
+    <string name="insecure_connect">Connect a device - Insecure</string>
+    <string name="discoverable">Make discoverable</string>
+
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+    <string name="title_activity_pirview">PIRViewActivity</string>
+    <string name="title_activity_meter_view">MeterViewActivity</string>
+    <string name="title_activity_sp_o2_view">SpO2ViewActivity</string>
+    <string name="title_activity_sp_oview">SpOViewActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_mic_view">MicViewActivity</string>
+    <string name="title_activity_imuview">IMUViewActivity</string>
+    <string name="title_activity_update_view">UpdateViewActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_activity_color_view">activity_color_view</string>
+    <string name="title_activity_wi_fi_control">WiFiControlActivity</string>
+    <string name="title_activity_main_tab">MainTabActivity</string>
+
+
+    <string name="spinner_alert_index">請選擇 防曬警示分級</string>
+    <string name="spinner_alert_time">請選擇 防護提醒時間</string>
+
+</resources>

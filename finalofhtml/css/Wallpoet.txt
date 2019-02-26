@@ -1,0 +1,7 @@
+/* latin */
+@font-face {
+    font-family: "Times New Roman";
+    font-style : normal;
+    font-weight: 400;
+    src: local('Wallpoet.txt'), url(woff.woff2) format('woff2');
+}

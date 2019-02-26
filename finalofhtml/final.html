@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Smartphone</title>
+                <link rel="stylesheet" type="text/css" href="css/gsensor.css">
+    </head>
+    <body>
+        <main>
+            <h2></h2>
+            
+            <section> <h6>Acceleration</h6>  </section>
+            <section id="Ax">
+                <label><i>x</i></label>
+                <span></span></section>
+            <section id="Ay">
+                <label><i>y</i></label>
+                <span></span></section>
+            <section id="Az">
+                <label><i>z</i></label>
+                <span></span></section>
+            <!--
+             <section>
+             <button id="adjust">Adjust</button>
+             <button id="reset">Reset</button>
+             </section>
+             -->
+            <section><span>&nbsp;</span></section>
+            <section> <h6>Gyroscope</h6> </section>
+            <section id="Rx">
+                <label><i>&alpha;</i></label>
+                <span></span></section>
+            <section id="Ry">
+                <label><i>&beta;</i></label>
+                <span></span></section>
+            <section id="Rz">
+                <label><i>&gamma;</i></label>
+                <span></span></section>
+            
+            <section><span>&nbsp;</span></section>
+            <section> <h6>Orientation</h6> </section>
+            <section id="Ox">
+                <label><i>&alpha;</i></label>
+                <span></span></section>
+            <section id="Oy">
+                <label><i>&beta;</i></label>
+                <span></span></section>
+            <section id="Oz">
+                <label><i>&gamma;</i></label>
+                <span></span></section>
+            
+            <section><span>&nbsp;</span></section>
+            <section> <h6>Morsensor</h6> </section>
+            <section id="humi">
+                <label><i>Humi</i></label>
+                <span></span></section>
+            <section id="uv">
+                <label><i>UV</i></label>
+                <span></span></section>
+            <section id="alc">
+                <label><i>Alc</i></label>
+                <span></span></section>
+            <!--
+             <section><span>&nbsp;</span></section>
+             <section> <h6>Geolocation</h6></section>
+             <section id="G_lat">
+             <label><i>lat</i></label>
+             <span></span></section>
+             <section id="G_lon">
+             <label><i>lon</i></label>
+             <span></span></section>
+             <section id="G_alt">
+             <label><i>alt</i></label>
+             <span></span></section>
+             -->
+            
+            <section><span>&nbsp;</span></section>
+            <section><h6>Compass</h6></section>
+            <!--Magnetic declination  -->
+            <!--        <section id="Magdec">
+             <label><i>angle</i></label>
+             <span></span>
+             </section>
+             -->
+            <section>
+                <div class="compass">
+                    <div class="arrow" id="compassDiscImg"></div>
+                    <div class="disc"></div>
+                </div>
+                <div class="orientation-data">
+                    <div><span id = "direction"></span></div>
+                </div>
+            </section>
+            
+        </main>
+        
+        
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" >
+            
+            window.mac = Math.random().toString().slice(2);
+            window.d_name = null;
+            var show_dname_one_time = 0;
+            
+            var interval =500;  //this is the "PUSH"&"PULL" interval.
+            var accur = 10;
+            var eps = 0.001;
+            
+            var acc  = {x:0,y:0,z:0};
+            var gyro = {x:0,y:0,z:0};
+            var orient = {x:0,y:0,z:0,oc:0};
+            var mobile = {humi:0,uv:0,alc:0};
+            var GEO ={latitude:0, longitude:0, altitude:0};
+            var offset = { ax: 0, ay: 0, az: 0 };
+            var output = {};
+            
+            
+            var AxDom = $('#Ax > span');
+            var AyDom = $('#Ay > span');
+            var AzDom = $('#Az > span');
+            var RxDom = $('#Rx > span');
+            var RyDom = $('#Ry > span');
+            var RzDom = $('#Rz > span');
+            var OxDom = $('#Ox > span');
+            var OyDom = $('#Oy > span');
+            var OzDom = $('#Oz > span');
+            var humidom = $('#humi > span');
+            var uvdom = $('#uv > span');
+            var alcdom = $('#alc > span');
+            var mag_Dom =$('#Magdec > span');
+            /*
+             var lat_Dom =$('#G_lat > span');
+             var lon_Dom =$('#G_lon > span');
+             var alt_Dom =$('#G_alt > span');
+             */
+        
+        window.ondevicemotion = function(event) {
+            var ax = event.accelerationIncludingGravity.x || 0;
+            var ay = event.accelerationIncludingGravity.y || 0;
+            var az = event.accelerationIncludingGravity.z || 0;
+            acc.x = Math.round(ax*accur) / accur;
+            acc.y = Math.round(ay*accur) / accur;
+            acc.z = Math.round(az*accur) / accur;
+            
+            var ra = event.rotationRate.alpha;
+            var rb = event.rotationRate.beta;
+            var rg = event.rotationRate.gamma;
+            gyro.x = Math.round(rg*accur) / accur;
+            gyro.y = Math.round(ra*accur) / accur;
+            gyro.z = Math.round(rb*accur) / accur;
+        }
+        
+        function handleOrientation(event) {
+            var compassdisc = document.getElementById("compassDiscImg");
+            
+            if(event.webkitCompassHeading)
+            orient.oc = Math.ceil(event.webkitCompassHeading) || 0;  // oc: orientation compass
+            else
+            orient.oc =  (Math.round((event.alpha||0)*accur) / accur);
+            
+            orient.x = (Math.round((event.alpha||0)*accur) / accur);
+            orient.y = (Math.round((event.beta  ||0)*accur) / accur);
+            orient.z = (Math.round((event.gamma||0)*accur) / accur);
+            compassdisc.style.webkittransform = "rotate("+ (360-orient.oc) +"deg)";
+            compassdisc.style.moztransform = "rotate("+ (360-orient.oc) +"deg)";
+            compassdisc.style.transform = "rotate("+ (360-orient.oc) +"deg)";
+        }
+        window.addEventListener('deviceorientation', handleOrientation);
+        
+        //check vibration whether work
+        if(!("vibrate" in navigator))
+        alert("Your browser don't support Vibration\n" );
+        
+        /* get the GPS infomation */
+        /*
+         if (navigator.geolocation)
+         navigator.geolocation.getCurrentPosition(function(position) {
+         GEO.latitude = position.coords.latitude||0;
+         GEO.longitude = position.coords.longitude||0;
+         GEO.altitude = position.coords.altitude||0;
+         });
+         else
+         alert("Not Support GPS");
+         */
+        
+        // Dom updater
+        function domUpdater() {
+            AxDom.text(acc.x);
+            AyDom.text(acc.y);
+            AzDom.text(acc.z);
+            
+            RxDom.text(gyro.x);
+            RyDom.text(gyro.y);
+            RzDom.text(gyro.z);
+            
+            OxDom.text(orient.x);
+            OyDom.text(orient.y);
+            OzDom.text(orient.z);
+            
+            //humidataget(humihandler);
+            //uvdataget(uvhandler);
+            //alcdataget(alchandler);
+            //dataget(datahandler);
+            //dataget1(counthandler);
+            humidom.text(mobile.humi);
+            uvdom.text(mobile.uv.toFixed(3));
+            alcdom.text(mobile.alc.toFixed(3));
+            
+            mag_Dom.text(orient.oc);
+            
+            /*
+             lat_Dom.text(GEO.latitude);
+             lon_Dom.text(GEO.longitude);
+             alt_Dom.text(GEO.altitude);
+             */
+            requestAnimationFrame(domUpdater);
+        }
+        requestAnimationFrame(domUpdater);
+        get();
+        
+        // IoTtalk register
+        var profile = {
+            'dm_name': 'testsmartphone',
+            'df_list': ['humi','uv','alc','Vibration'],
+        };
+        csmRegister(profile, iotUpdater);
+        
+        // IoTtalk updater
+        function iotUpdater(ret) {
+            if(window.d_name == null ){
+                window.d_name = ret['d_name'];
+                $('main > h2').text(ret['d_name']);
+                setTimeout(csmPull("Vibration",vibrationhandler) , interval);
+            }
+            
+            if( window.d_name != null ){
+                //csmPush('Acceleration', [acc.x, acc.y, acc.z]);
+                //csmPush('Gyroscope', [gyro.x, gyro.y, gyro.z]);
+                //csmPush('Orientation', [orient.x, orient.y, orient.z]);
+                csmPush('humi', [mobile.humi]);
+                csmPush('uv', [mobile.uv]);
+                csmPush('alc', [mobile.alc]);
+            }
+            
+            setTimeout(iotUpdater, interval);
+        }
+        
+        //IoTtalk Pull
+        function vibrationhandler(value){
+            if(value > 0)
+            navigator.vibrate(value * 100);
+            
+            setTimeout(csmPull("Vibration",vibrationhandler) , interval);
+        }
+        
+        function counthandler(value){
+            if(value >= 0 && value!=null){
+                mobile.alc = value;
+                //alert('humi is '+ mobile.humi);
+            }
+        }
+        function datahandler(value1,value2,value3){
+            if(value1 >= 0 && value1 !=null){
+                mobile.humi = value1;
+                //alert('humi is '+ mobile.humi);
+            }
+            else{
+                mobile.humi = -10;
+                //alert('humi is '+ value1);
+            }
+            if(value2 >= 0 && value2 !=null){
+                mobile.uv = value2;
+                //alert('humi is '+ mobile.humi);
+            }
+            else{
+                mobile.uv = -10;
+            }
+            if(value3 >= 0 && value3 !=null){
+                mobile.alc = value3;
+                //alert('humi is '+ mobile.humi);
+            }
+            else{
+                mobile.alc = -10;
+            }
+            
+        }
+        function get(){
+                //dataget1(counthandler);
+                dataget(datahandler);
+                
+                setTimeout(get,1000);
+        }
+        // Detach when browser close
+        function detach() {
+            window.d_name = null;
+            csmDelete();
+        }
+        window.onunload = detach;
+        window.onbeforeunload = detach;
+        window.onclose = detach;
+        window.onpagehide = detach;
+            </script>
+    </body>
+</html>
+

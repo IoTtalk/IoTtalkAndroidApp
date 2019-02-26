@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--  Y 軸從 38 移動到 238, 歷時 500 毫秒 -->
+  <translate android:fromYDelta="38"
+             android:toYDelta="238"
+             android:duration="500" />
+  <!--  從 不透明 到 透明, 歷時 500 毫秒 -->
+  <alpha android:fromAlpha="1.0"
+         android:toAlpha="0.0"
+         android:duration="500" />
+
+    
+
+</set>

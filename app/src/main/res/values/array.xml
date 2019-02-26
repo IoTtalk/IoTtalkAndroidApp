@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<resources>
+	<string-array name="sensorType"> 
+		<item>SENSOR_NONE</item>
+		<item>SENSOR_DUST</item>
+		<item>SENSOR_UV</item>
+		<item>SENSOR_ELCOH</item>
+	</string-array>
+    
+	<integer-array name="valueScale"> 
+		<item>1</item>
+		<item>1</item>
+		<item>1</item>
+		<item>100</item>
+		
+	</integer-array>
+    <integer-array name="scaleCenterValue"> 
+		<item>50</item>
+		<item>30</item>
+		<item>6</item>
+		<item>120</item>
+	</integer-array>
+    <integer-array name="scaleColor"> 
+		<item>0x9f004d0f</item>
+		<item>0x9f004d0f</item>
+		<item>0x9f004d0f</item>
+		<item>0x9f004d0f</item>
+	</integer-array>
+	<integer-array name="totalNotches"> 
+		<item>60</item>
+		<item>90</item>
+		<item>15</item>
+		<item>72</item>
+	</integer-array>
+  	<integer-array name="incrementPerLargeNotch"> 
+		<item>10</item>
+		<item>10</item>
+		<item>1</item>
+		<item>20</item>
+	</integer-array>
+	<integer-array name="incrementPerSmallNotch"> 
+		<item>2</item>
+		<item>1</item>
+		<item>1</item>
+		<item>5</item>
+	</integer-array>
+	<integer-array name="warningValue"> 
+		<item>45</item>
+		<item>45</item>
+		<item>7</item>
+		<item>25</item>
+	</integer-array>
+	<string-array name="warningComment"> 
+		<item>請注意，感測器指數超標</item>
+		<item>請注意，空氣品質差</item>
+		<item>請注意，紫外線指數超標</item>
+		<item>請注意，酒測值超標</item>
+	</string-array>
+	<string-array name="lowerTitle"> 
+		<item>感測器指數</item>
+		<item>灰塵指數</item>
+		<item>紫外線指數</item>
+		<item>酒測指數</item>
+
+	</string-array>
+	<string-array name="unitTitle"> 
+		<item>數值單位</item>
+		<item>\u00B5g/m\u00B3</item>
+		<item>W/m\u00B2</item>
+		<item>mg/L</item>		
+	</string-array>
+	<string-array name="upperTitle"> 
+		<item>說明</item>
+		<item>說明</item>
+		<item>說明</item>
+		<item>說明</item>
+	</string-array>
+
+	<array name="rangeTable">
+	    <item>@array/sensor_non</item>
+		<item>@array/sensor_dust</item>
+		<item>@array/sensor_uv</item>
+		<item>@array/sensor_alcoh</item>
+	</array>	
+		
+	<array name="sensor_non">
+	    <item>@array/rangeTitle_none</item>
+		<item>@array/rangeComment_none</item>
+		<item>@array/rangeColor_none</item>
+		<item>@array/rangeValue_none</item>
+	</array>		
+
+	<array name="sensor_dust">
+	    <item>@array/rangeTitle_dust</item>
+		<item>@array/rangeComment_dust</item>
+		<item>@array/rangeColor_dust</item>
+		<item>@array/rangeValue_dust</item>
+	</array>		
+		
+	<array name="sensor_uv">
+	    <item>@array/rangeTitle_uv</item>
+		<item>@array/rangeComment_uv</item>
+		<item>@array/rangeColor_uv</item>
+		<item>@array/rangeValue_uv</item>
+	</array>		
+		
+	<array name="sensor_alcoh">
+	    <item>@array/rangeTitle_alcoh</item>
+		<item>@array/rangeComment_alcoh</item>
+		<item>@array/rangeColor_alcoh</item>
+		<item>@array/rangeValue_alcoh</item>
+	</array>		
+	
+    <integer-array name="rangeValue_none">  
+		<item>0</item>  
+		<item>15</item>  
+		<item>30</item>  
+		<item>45</item>  
+		<item>60</item>  
+		<item>100</item>
+	</integer-array>
+    <string-array name="rangeTitle_none">  
+		<item>範圍全</item>  
+		<item>範圍一</item>  
+		<item>範圍二</item>  
+		<item>範圍三</item>  
+		<item>範圍四</item>  
+		<item>範圍五</item>
+    </string-array>
+	<string-array name="rangeComment_none">  
+		<item>範圍全</item>  
+		<item>範圍一</item>  
+		<item>範圍二</item>  
+		<item>範圍三</item>  
+		<item>範圍四</item>  
+		<item>範圍五</item>
+	</string-array>
+	<integer-array name="rangeColor_none">  
+		<item>0xcff8f8f8</item>  
+		<item>0x9f00ccff</item>  
+		<item>0x9f00ff00</item>  
+		<item>0x9fffff00</item>  
+		<item>0x9fffccff</item>  
+		<item>0x9fff0000</item>
+	</integer-array>
+
+
+    <integer-array name="rangeValue_dust">  
+		<item>0</item>  
+		<item>15</item>  
+		<item>30</item>  
+		<item>45</item>  
+		<item>60</item>  
+		<item>70</item>
+	</integer-array>
+    <string-array name="rangeTitle_dust">  
+		<item>範圍全</item>  
+		<item>乾淨</item>  
+		<item>良好</item>  
+		<item>普通</item>  
+		<item>不良</item>  
+		<item>汙濁</item>		
+    </string-array>
+	<string-array name="rangeComment_dust">  
+		<item>範圍全</item>
+		<item>空氣品質良好</item>  
+		<item>有些許懸浮物</item>  
+		<item>對健康尚無影響</item>  
+		<item>對敏感族群有些微影響</item>  
+		<item>敏感族群出現明顯惡化現象</item>  
+	</string-array>
+	<integer-array name="rangeColor_dust">  
+		<item>0xcff8f8f8</item>  
+		<item>0x9f00ccff</item>  
+		<item>0x9f00ff00</item>  
+		<item>0x9fffff00</item>  
+		<item>0x9fffccff</item>  
+		<item>0x9fff0000</item>
+	</integer-array>
+
+
+    <integer-array name="rangeValue_uv">  
+		<item>0</item>  
+		<item>3</item>  
+		<item>6</item>  
+		<item>8</item>  
+		<item>11</item>  
+		<item>12</item>
+	</integer-array>
+    <string-array name="rangeTitle_uv">  
+		<item>範圍全</item>  
+		<item>安全</item>  
+		<item>低量</item>  
+		<item>中量</item>  
+		<item>過量</item>  
+		<item>危險</item>
+    </string-array>
+	<string-array name="rangeComment_uv">  
+		<item>範圍全</item>  
+		<item>對一般人無危險</item>  
+		<item>長時間暴露於陽光中有輕傷害的風險</item>  
+		<item>曬傷時間:30分鐘\n防曬建議:帽子/陽傘+防曬乳+儘量待在陰涼處</item>  
+		<item>曬傷時間:20分鐘\n防曬建議:帽子/陽傘+防曬乳+太陽眼鏡+待在陰涼處+長袖衣物+10時至14時避免外出</item>  
+		<item>曬傷時間:20分鐘\n防曬建議:帽子/陽傘+防曬乳+太陽眼鏡+待在陰涼處+長袖衣物+10時至14時避免外出</item>
+	</string-array>
+	<integer-array name="rangeColor_uv">  
+		<item>0xcff8f8f8</item>  
+		<item>0x9f00ccff</item>  
+		<item>0x9f00ff00</item>  
+		<item>0x9fffff00</item>  
+		<item>0x9fffccff</item>  
+		<item>0x9fff0000</item>
+	</integer-array>
+
+	
+    <integer-array name="rangeValue_alcoh">
+		<item>0</item>
+		<item>25</item>
+		<item>75</item>
+		<item>125</item>
+		<item>175</item>
+		<item>250</item>
+	</integer-array>
+
+    <string-array name="rangeTitle_alcoh">  
+		<item>範圍全</item>  
+		<item>安全</item>  
+		<item>輕醉</item>  
+		<item>茫醉</item>  
+		<item>深醉</item>  
+		<item>泥醉</item>
+    </string-array>
+	<string-array name="rangeComment_alcoh">  
+		<item>範圍全</item>  
+		<item>酒精反應低於標準值</item>  
+		<item>症狀：解除抑制、多辯、決斷快</item>  
+		<item>症狀：興奮狀、合併麻痺症狀、語言略不清楚、運動失調、平衡障礙、判斷力遲鈍</item>  
+		<item>症狀：噁心、嘔吐、意識混亂、步行困難、言語不清、易進入睡眠狀態</item>  
+		<item>症狀：失去意識、呼吸困難、有致死可能</item>
+	</string-array>
+	<integer-array name="rangeColor_alcoh">  
+		<item>0xcff8f8f8</item>  
+		<item>0x9f00ccff</item>  
+		<item>0x9fff5050</item>  
+		<item>0x9ff02828</item>  
+		<item>0x9fc82828</item>  
+		<item>0x9fb11316</item>
+	</integer-array>
+
+	<string-array name="spinner_alert_index_list">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+	</string-array>
+	<string-array name="spinner_alert_time_list">
+		<item>5</item>
+		<item>10</item>
+		<item>15</item>
+		<item>30</item>
+		<item>60</item>
+	</string-array>
+</resources>
+
