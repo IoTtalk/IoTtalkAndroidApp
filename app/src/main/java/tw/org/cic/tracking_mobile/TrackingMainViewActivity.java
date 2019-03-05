@@ -50,8 +50,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.net.ssl.HttpsURLConnection;
-
 import tw.org.cic.morsensor_mobile.R;
 
 
@@ -366,7 +364,7 @@ public class TrackingMainViewActivity extends Activity {
                 try {
                     URL url = new URL(setIdUrlAddress+"?app=HumanTracking&name="+trackingName);
                     Log.i("set_tracking_id", url.toString());
-                    HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setAllowUserInteraction(false);
                     conn.setInstanceFollowRedirects(true);
                     conn.setRequestMethod("GET");
@@ -431,7 +429,7 @@ public class TrackingMainViewActivity extends Activity {
                 try {
                     URL url = new URL(setPwdUrlAddress);
                     Log.i("set_tracking_pwd", url.toString());
-                    HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setAllowUserInteraction(false);
                     conn.setInstanceFollowRedirects(true);
                     conn.setRequestMethod("GET");
