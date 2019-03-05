@@ -70,8 +70,8 @@ public class TrackingMainViewActivity extends Activity {
     boolean isTrackingStart = false;
 
     String openMapUrl = TrackingConfig.mapURL;
-    String setIdUrlAddress = "https://"+TrackingConfig.trackingHost+"/secure/_set_tracking_id";
-    String setPwdUrlAddress = "https://"+TrackingConfig.trackingHost+"/static/passwd_tracking";
+    String setIdUrlAddress = TrackingConfig.mapURL+"/secure/_set_tracking_id";
+    String setPwdUrlAddress = TrackingConfig.mapURL+"/static/passwd_tracking";
 
     EditText name;
 

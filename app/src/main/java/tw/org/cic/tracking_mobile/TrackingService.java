@@ -315,7 +315,7 @@ public class TrackingService extends Service {
         thread.start();
 
         if(!isWebOpen) {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://"+TrackingConfig.trackingHost+"/map/?name="+trackingName+"&app="+trackingApp));
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(TrackingConfig.mapURL+"?name="+trackingName+"&app="+trackingApp));
             startActivity(browserIntent);
             isWebOpen = true;
         }

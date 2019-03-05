@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class TrackingCSMapi {
     static private String log_tag = "MorSensor";
-    static public String ENDPOINT = "https://"+TrackingConfig.trackingHost;
+    static public String ENDPOINT = TrackingConfig.trackingHost;
 
     public static class CSMError extends Exception {
         String msg;
