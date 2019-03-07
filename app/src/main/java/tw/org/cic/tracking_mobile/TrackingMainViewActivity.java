@@ -564,13 +564,13 @@ public class TrackingMainViewActivity extends Activity {
             runtime_permissions();
         }
         else {
-            new AlertDialog.Builder(this).setMessage("沒有網路")
-                    .setPositiveButton("前往設定網路", new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(this).setMessage("No Internet access")
+                    .setPositiveButton("Open Network", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Intent callNetSettingIntent = new Intent(
                                     android.provider.Settings.ACTION_WIRELESS_SETTINGS);
-                            Toast.makeText(context, "請前往開啟網路", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(context, "請前往開啟網路", Toast.LENGTH_LONG).show();
                             startActivity(callNetSettingIntent);
                         }
                     })
